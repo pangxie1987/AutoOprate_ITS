@@ -50,4 +50,4 @@ def sys_version(ipadress,user,pw):
     except Exception,e:
         print(e)
 
-# sys_version ("10.243.140.218","ksadmin",'Kayak2018!')
+sys_version ("10.243.140.165","ksadmin",'Time@165change')

@@ -85,11 +85,14 @@ class MsSQL(object):
         print('Sucessd：%s'%sql)
         self.conn.close()
 
-def exceuteScript():
+def Oracle_exe():
+    '执行Oracle脚本'
     
-    # 执行Oracle脚本
     ora=ora_pro()
     ora.oracle_process()
+
+def exceuteScript():
+    '清理MSSQL数据库，并启动撮合'
 
     # 调用Script.bat脚本执行深交所模拟撮合
     info=os.system('Script.bat')

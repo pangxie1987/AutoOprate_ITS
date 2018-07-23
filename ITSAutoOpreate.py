@@ -6,7 +6,7 @@
 '''
 import time
 from MonitorClient import AutoStart,logger
-from oracle_excute import ora_pro,MsSQL,exceuteScript
+from oracle_excute import ora_pro,MsSQL,exceuteScript,Oracle_exe
 
 def main():
     tostart=AutoStart()
@@ -16,6 +16,9 @@ def main():
 
             # 一键停止2003
             tostart.Start(2003)
+
+            # 执行Oracle维护脚本
+            Oracle_exe()
 
             # 执行MSSQL和ORALCE清理工作
             exceuteScript()
@@ -29,16 +32,19 @@ def main():
 
             # 释放oralce连接
             tostart.closeconnect()
+
+            break
         elif input == 2:
             # 一键启动2001
             tostart.Start(2001)
             # 进行必要的延时  等待全部上场完成后才能进行开市操作
             time.sleep(20)
             tostart.ExecCoreUpLoadStart()
-        
+            break
         elif input == 3:
             # 一键停止2003
             tostart.Start(2003)
+            break
         else:
             logger.info('Quit....!')
             break
