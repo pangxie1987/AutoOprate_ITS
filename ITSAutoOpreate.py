@@ -7,6 +7,7 @@
 import time
 from MonitorClient import AutoStart,logger
 from oracle_excute import ora_pro,MsSQL,exceuteScript,Oracle_exe
+from server_remote import Linux_remote
 
 def main():
     tostart=AutoStart()
@@ -17,11 +18,14 @@ def main():
             # 一键停止2003
             tostart.Start(2003)
 
+            # 清除Linux服务器上ITS系统日志
+            Linux_remote()
+
             # 执行Oracle维护脚本
             Oracle_exe()
 
             # 执行MSSQL和ORALCE清理工作
-            exceuteScript()
+            # exceuteScript()
 
             # 一键启动2001
             tostart.Start(2001)

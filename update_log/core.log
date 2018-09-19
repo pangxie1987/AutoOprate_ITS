@@ -1,11 +1,11 @@
 
-SQL*Plus: Release 11.2.0.2.0 Production on 星期二 6月 5 17:40:55 2018
+SQL*Plus: Release 11.2.0.2.0 Production on 星期三 9月 19 11:23:05 2018
 
 Copyright (c) 1982, 2014, Oracle.  All rights reserved.
 
 
 连接到: 
-Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
 With the Partitioning, OLAP, Data Mining and Real Application Testing options
 
 
@@ -36,40 +36,40 @@ With the Partitioning, OLAP, Data Mining and Real Application Testing options
 已更新55行。
 
 
-已更新238行。
+已更新244行。
 
 
-已更新1057行。
+已更新1063行。
 
 
-已更新1224行。
+已更新1254行。
 
 
-已更新44行。
+已更新45行。
 
 
-已更新184行。
+已更新185行。
 
 
-已更新215行。
+已更新220行。
 
 
-已更新44行。
+已更新45行。
 
 
-已更新184行。
+已更新185行。
 
 
-已更新215行。
+已更新220行。
 
 
-已更新44行。
+已更新45行。
 
 
-已更新184行。
+已更新185行。
 
 
-已更新215行。
+已更新220行。
 
 
 提交完成。
@@ -325,5 +325,5 @@ Importing table acc_proflstk...
 Done.
 Importing table dl_stkdetail...
 Done.
-从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - Production
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
 With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开

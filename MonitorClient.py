@@ -3,19 +3,19 @@
 仿造监控客户端，实现系统的一键启停
 '''
 import cx_Oracle,time
-from configparser import ConfigParser
 import pkgutil
 import logging,time
+from oracle_excute import getconfig
 
-def getconfig(section,key):
-    #print ('cwd:',os.getcwd())#获得当前工作目录
-    config = ConfigParser()
-    try:
-        config.read('conf.ini')
-        return config.get(section, key)
-    except Exception,e:
-        print (e)
-        #print(u'找不到配置文件conf.ini')
+# def getconfig(section,key):
+#     #print ('cwd:',os.getcwd())#获得当前工作目录
+#     config = ConfigParser()
+#     try:
+#         config.read('conf.ini')
+#         return config.get(section, key)
+#     except Exception,e:
+#         print (e)
+#         #print(u'找不到配置文件conf.ini')
 
 
 logname=time.strftime('%H-%M-%S')
@@ -135,7 +135,7 @@ class AutoStart(object):
                 # print('sql_insert:',sql_insert)
 
 
-                # resback=self.curs.execute(sql_insert,value)
+                resback=self.curs.execute(sql_insert,value)
                 logger.debug(sql_insert)
                 logger.debug(value)
                 # print('resback:%s'%resback)

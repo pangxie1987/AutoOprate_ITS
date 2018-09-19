@@ -15,10 +15,10 @@ def getconfig(section,key):
 
 class ora_pro(object):
     if os.path.exists('update_log'):
-        print(u'update_log已存在')
+        print(u'update_log Have Been Here!')
     else:
         os.mkdir('update_log')
-        print(u'update_log创建成功')
+        print(u'update_log Create Sucess!')
 
     def oracle_process(self):
         '''
