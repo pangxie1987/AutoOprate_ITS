@@ -79,31 +79,35 @@ class Linux(object):
         #          return result
 
 
-def sys_version(ipadress,user,pw):
+class Windows(object):
     '''
     windows 远程操作
     '''
-    conn=wmi.WMI(computer=ipadress,user=user,password=pw)
-    for sys in conn.Win32_OperatingSystem():
-        print('Version:%s'%sys.Caption.encode('utf-8'),'Vernum:%s'%sys.BuildNumber)  #系统信息
-        # print('系统位数：%s'%sys.OSArchitecture)   #系统的位数
-        # print('系统进程：%s'%sys.NumberofProcesses)    #系统的进程
+    def __init__(self, ip, user, passwd, cmd):
+        self.ip = ip
+        self.user = user
+        self.passwd = passwd
+        self.cmd = cmd
+    
+    def connect(self):
+        conn=wmi.WMI(computer=self.ip, user=self.user, password=self.passwd)
+        # for sys in conn.Win32_OperatingSystem():
+        #     print('Version:%s'%sys.Caption.encode('utf-8'),'Vernum:%s'%sys.BuildNumber)  #系统信息
+        try:
+            filename=[self.cmd]
+            # cmd_callbat=['cd C:\its\深模拟撮合','start bpdemo.prg /B']
+            for file in filename:
+                
+                cmd_callbat=r'cmd /c call %s'%file
+                # cmd_callbat=r'start '+file
+                print(cmd_callbat)
+                process_id,resback=conn.Win32_Process.Create(cmd_callbat)  #执行bat
+                time.sleep(1)
+                print(u'%s 执行完成'%file)
+                print(resback)
 
-    try:
-        filename=['C:\its\深模拟撮合\3_start.bat','C:\its\深模拟撮合\Test.bat']
-        # cmd_callbat=['cd C:\its\深模拟撮合','start bpdemo.prg /B']
-        for file in filename:
-            
-            cmd_callbat=r'cmd /c call %s'%file
-            # cmd_callbat=r'start '+file
-            print(cmd_callbat)
-            process_id,resback=conn.Win32_Process.Create(cmd_callbat)  #执行bat
-            time.sleep(1)
-            print(u'%s 执行完成'%file)
-            print(resback)
-
-    except Exception,e:
-        print(e)
+        except Exception,e:
+            print(e)
 
 
 def Linux_remote():
@@ -118,5 +122,14 @@ def Linux_remote():
     host.send(cmd)
     host.close()
 
+def Windows_remote():
+    ip = getconfig('Windows','host')
+    username = getconfig('Windows','username')
+    password = getconfig('Windows','passwd')
+    cmd = getconfig('Windows', 'cmd')
+    host = Windows(ip, username, password, cmd)
+    host.connect()
+
 if __name__ == '__main__':
-    Linux_remote()
+    #Linux_remote()
+    Windows_remote()
