@@ -103,7 +103,7 @@ class Windows(object):
                 print(cmd_callbat)
                 process_id,resback=conn.Win32_Process.Create(cmd_callbat)  #执行bat
                 time.sleep(1)
-                print(u'%s 执行完成'%file)
+                print(u'%s Execute Done'%file)
                 print(resback)
 
         except Exception,e:

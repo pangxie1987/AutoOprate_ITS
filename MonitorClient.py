@@ -141,10 +141,10 @@ class AutoStart(object):
                 # print('resback:%s'%resback)
                 self.conn.commit()
 
-                # 报盘启动时，默认延时15S
+                # 报盘启动时，默认延时40S
                 if group_id==51 and type==2001:
                     logger.info('OrderCentral Delay 30S To Start')
-                    time.sleep(30)
+                    time.sleep(40)
                 else:
                     time.sleep(1)
         if type==2001:
