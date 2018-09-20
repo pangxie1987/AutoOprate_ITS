@@ -18,7 +18,7 @@ def main():
             # 一键停止2003
             tostart.Start(2003)
 
-            # 清楚Windows机器上ITS的系统日志
+            # 清除Windows机器上ITS的系统日志
             Windows_remote()
 
             # 清除Linux服务器上ITS系统日志
